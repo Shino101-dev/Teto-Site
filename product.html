@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hand-thrown Ceramic Mug — TETO Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .crumb{ font-size:12.5px; color:var(--ink-soft); padding:24px 0 0; }
+  .crumb a{ color:var(--ink-soft); } .crumb a:hover{ color:var(--ink); }
+  .pdp{ display:grid; grid-template-columns:1fr 1fr; gap:64px; padding:28px 0 80px; }
+  .gallery-main{ aspect-ratio:1/1; background:var(--bg-card); border:1px solid var(--line); overflow:hidden; margin-bottom:12px; }
+  .gallery-main img{ width:100%; height:100%; object-fit:cover; }
+  .gallery-thumbs{ display:flex; gap:10px; }
+  .gallery-thumbs button{ width:64px; height:64px; border:1px solid var(--line); background:var(--bg-card); padding:0; cursor:pointer; overflow:hidden; }
+  .gallery-thumbs img{ width:100%; height:100%; object-fit:cover; }
+
+  .pdp-info .tags{ display:flex; gap:8px; margin-bottom:14px; }
+  .pdp-info .pill{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; padding:5px 10px; border:1px solid var(--line); color:var(--accent-dk); font-weight:600; }
+  .pdp-info h1{ font-size:2rem; margin-bottom:8px; }
+  .pdp-info .price{ font-size:1.3rem; font-weight:600; margin-bottom:20px; }
+  .pdp-info p.desc{ color:var(--ink-soft); margin-bottom:26px; max-width:52ch; }
+
+  .option-row{ margin-bottom:24px; }
+  .option-row .label{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; display:block; }
+  .size-options{ display:flex; gap:10px; }
+  .size-option{ padding:10px 18px; border:1px solid var(--line); background:var(--white); cursor:pointer; font-size:14px; }
+  .size-option.active, .size-option:hover{ border-color:var(--ink); background:var(--ink); color:var(--white); }
+
+  .qty-cart-row{ display:flex; gap:12px; align-items:stretch; margin-bottom:14px; }
+  .qty-stepper{ display:flex; align-items:center; border:1px solid var(--line); }
+  .qty-stepper button{ width:40px; background:none; border:none; cursor:pointer; font-size:16px; }
+  .qty-stepper span{ width:34px; text-align:center; font-size:14px; }
+  .qty-cart-row .btn{ flex:1; }
+  .wishlist-link{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-soft); margin-top:6px; cursor:pointer; }
+  .wishlist-link:hover{ color:var(--ink); }
+
+  .tabs{ display:flex; gap:26px; border-bottom:1px solid var(--line); margin-top:38px; }
+  .tabs button{ background:none; border:none; padding:12px 0; font-size:13px; letter-spacing:.03em; color:var(--ink-soft); cursor:pointer; border-bottom:2px solid transparent; }
+  .tabs button.active{ color:var(--ink); border-color:var(--accent); }
+  .tab-panel{ display:none; padding:22px 0; color:var(--ink-soft); font-size:14.5px; line-height:1.8; }
+  .tab-panel.active{ display:block; }
+  .tab-panel ul li{ padding:4px 0; }
+
+  .related{ padding:0 0 80px; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <a href="index.html" class="logo">TETO Shop</a>
+    <nav class="primary"><ul><li><a href="shop.html">Shop</a></li><li><a href="shop.html">Categories</a></li><li><a href="about.html">About</a></li></ul></nav>
+    <div class="nav-icons">
+      <button class="icon-btn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <a class="icon-btn" href="cart.html" aria-label="Cart" style="position:relative;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/></svg>
+      </a>
+      <button class="nav-toggle" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumb"><a href="index.html">Shop</a> / <a href="shop.html">All Collections</a> / <a href="shop.html">Home</a> / Ceramics</p>
+
+  <div class="pdp">
+    <div>
+      <div class="gallery-main"><img id="mainImg" src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=900&q=80" alt="Hand-thrown Ceramic Mug"></div>
+      <div class="gallery-thumbs">
+        <button onclick="document.getElementById('mainImg').src=this.querySelector('img').src"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=200&q=80" alt=""></button>
+        <button onclick="document.getElementById('mainImg').src=this.querySelector('img').src"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=200&q=80&sat=-30" alt=""></button>
+        <button onclick="document.getElementById('mainImg').src=this.querySelector('img').src"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=200&q=80" alt=""></button>
+      </div>
+    </div>
+
+    <div class="pdp-info">
+      <div class="tags"><span class="pill">New Arrival</span><span class="pill">Limited Batch</span></div>
+      <h1>Hand-thrown Ceramic Mug</h1>
+      <p class="price">$42.00</p>
+      <p class="desc">Each piece is unique, bearing the distinctive marks of the artisan's hands. Crafted from locally sourced stoneware and finished with a non-toxic matte glaze.</p>
+
+      <div class="option-row">
+        <span class="label">Size</span>
+        <div class="size-options">
+          <button class="size-option active">Small (8oz)</button>
+          <button class="size-option">Large (12oz)</button>
+        </div>
+      </div>
+
+      <div class="option-row">
+        <span class="label">Quantity</span>
+        <div class="qty-cart-row">
+          <div class="qty-stepper">
+            <button data-qty-minus>−</button>
+            <span data-qty-value>1</span>
+            <button data-qty-plus>+</button>
+          </div>
+          <button class="btn" data-add-to-cart>Add to Cart</button>
+        </div>
+      </div>
+      <div class="wishlist-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        Save to Wishlist
+      </div>
+
+      <div class="tabs">
+        <button class="active" data-tab="details">Details</button>
+        <button data-tab="sustainability">Sustainability</button>
+        <button data-tab="reviews">Reviews (14)</button>
+      </div>
+      <div class="tab-panel active" data-tab-panel="details">
+        <ul>
+          <li>Height: 3.5 inches, Width: 3.2 inches</li>
+          <li>Dishwasher and Microwave safe</li>
+          <li>Locally sourced reduction-fired stoneware</li>
+          <li>Custom matte glaze with iron speckle detail</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-tab-panel="sustainability">
+        <p>Locally sourced reduction-fired stoneware, fired twice at high temperatures in our Kyoto studio using low-impact kilns. Packaging is 100% recyclable.</p>
+      </div>
+      <div class="tab-panel" data-tab-panel="reviews">
+        <p><strong>Sarah J.</strong> — Oct 12, 2023<br>Each mug is individually hand-thrown on the potter's wheel in our Kyoto studio. The clay is sourced locally and fired twice at high temperatures to ensure durability and a refined finish.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="related">
+    <div class="section-head">
+      <div><span class="eyebrow">Curated Objects</span><h2>Complete the Collection</h2></div>
+    </div>
+    <div class="product-grid">
+      <a class="card" href="product.html"><div class="thumb"><span class="no">No. 02</span><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80" alt="Artisan Teapot"></div><h3>Artisan Teapot</h3><p class="price">$88.00</p></a>
+      <a class="card" href="product.html"><div class="thumb"><span class="no">No. 03</span><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600&q=80" alt="Stone Saucer Set"></div><h3>Stone Saucer Set</h3><p class="price">$24.00</p></a>
+      <a class="card" href="product.html"><div class="thumb"><span class="no">No. 04</span><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&q=80" alt="Walnut Serving Tray"></div><h3>Walnut Serving Tray</h3><p class="price">$65.00</p></a>
+      <a class="card" href="product.html"><div class="thumb"><span class="no">No. 05</span><img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=600&q=80" alt="Linen Hand Towel"></div><h3>Linen Hand Towel</h3><p class="price">$18.00</p></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.14); padding-top:24px;">
+      <span>© 2024 TETO Shop. Organic Precision.</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

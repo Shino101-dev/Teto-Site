@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — TETO Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .cart-layout{ display:grid; grid-template-columns:1.6fr 1fr; gap:56px; padding:36px 0 90px; align-items:start; }
+  .cart-item{ display:grid; grid-template-columns:96px 1fr auto; gap:18px; padding:22px 0; border-bottom:1px solid var(--line); align-items:center; }
+  .cart-item img{ width:96px; height:96px; object-fit:cover; border:1px solid var(--line); }
+  .cart-item .meta p{ color:var(--ink-soft); font-size:13px; margin-top:3px; }
+  .cart-item .price-col{ text-align:right; }
+  .cart-item .qty-stepper{ display:flex; align-items:center; border:1px solid var(--line); margin-top:8px; width:fit-content; margin-left:auto; }
+  .cart-item .qty-stepper button{ width:32px; background:none; border:none; cursor:pointer; }
+  .cart-item .remove{ font-size:12px; color:var(--ink-soft); text-decoration:underline; cursor:pointer; margin-top:8px; display:inline-block; }
+
+  .summary{ background:var(--bg-card); border:1px solid var(--line); padding:28px; position:sticky; top:96px; }
+  .summary h3{ margin-bottom:20px; }
+  .summary-row{ display:flex; justify-content:space-between; font-size:14.5px; padding:8px 0; color:var(--ink-soft); }
+  .summary-row.total{ color:var(--ink); font-weight:600; font-size:1.05rem; border-top:1px solid var(--line); margin-top:8px; padding-top:16px; }
+  .secure-note{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--ink-soft); margin-top:16px; }
+
+  .empty-cart{ text-align:center; padding:90px 0; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <a href="index.html" class="logo">TETO Shop</a>
+    <nav class="primary"><ul><li><a href="shop.html">Shop</a></li><li><a href="shop.html">Categories</a></li><li><a href="about.html">About</a></li></ul></nav>
+    <div class="nav-icons">
+      <button class="icon-btn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <a class="icon-btn" href="cart.html" aria-label="Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/></svg></a>
+      <button class="nav-toggle" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumb" style="padding:24px 0 0; font-size:12.5px; color:var(--ink-soft);"><a href="index.html">Shop</a> / Checkout</p>
+  <h1 style="font-size:clamp(1.8rem,3.6vw,2.4rem); margin-top:14px;">Your Cart</h1>
+
+  <div class="cart-layout">
+    <div>
+      <div class="cart-item">
+        <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=200&q=80" alt="Hand-thrown Ceramic Mug">
+        <div class="meta">
+          <h3>Hand-thrown Ceramic Mug</h3>
+          <p>Oatmeal / Small (8oz)</p>
+          <span class="remove">Remove</span>
+        </div>
+        <div class="price-col">
+          <p style="font-weight:600;">$42.00</p>
+          <div class="qty-stepper"><button>−</button><span style="width:28px;text-align:center;">1</span><button>+</button></div>
+        </div>
+      </div>
+      <div class="cart-item">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=200&q=80" alt="Woven Linen Throw">
+        <div class="meta">
+          <h3>Woven Linen Throw</h3>
+          <p>Sage / Standard</p>
+          <span class="remove">Remove</span>
+        </div>
+        <div class="price-col">
+          <p style="font-weight:600;">$85.00</p>
+          <div class="qty-stepper"><button>−</button><span style="width:28px;text-align:center;">1</span><button>+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="summary">
+      <h3>Order Summary (2 items)</h3>
+      <div class="summary-row"><span>Subtotal</span><span>$209.00</span></div>
+      <div class="summary-row"><span>Shipping</span><span>Calculated at next step</span></div>
+      <div class="summary-row"><span>Taxes</span><span>$16.72</span></div>
+      <div class="summary-row total"><span>Total</span><span>$225.72</span></div>
+      <a href="checkout.html" class="btn full" style="margin-top:20px;">Continue to Payment</a>
+      <div class="secure-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Secure encrypted checkout
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.14); padding-top:24px;">
+      <span>© 2024 TETO Shop. Organic Precision.</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

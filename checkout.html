@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — TETO Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .checkout-layout{ display:grid; grid-template-columns:1.5fr 1fr; gap:56px; padding:32px 0 90px; align-items:start; }
+  .steps{ display:flex; gap:24px; margin-bottom:36px; }
+  .step-pill{ display:flex; align-items:center; gap:8px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); background:none; border:none; cursor:pointer; padding:0; }
+  .step-pill span.num{ width:22px; height:22px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:12px; }
+  .step-pill.current{ color:var(--ink); font-weight:700; }
+  .step-pill.current span.num{ background:var(--ink); border-color:var(--ink); color:var(--white); }
+
+  [data-step]{ display:none; }
+  [data-step].active{ display:block; }
+
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-grid .full{ grid-column:1/-1; }
+  .field label{ display:block; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:7px; }
+  .field input, .field select{ width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--white); }
+  .field{ margin-bottom:16px; }
+
+  .payment-card{ display:flex; align-items:center; gap:12px; padding:16px; border:1px solid var(--line); margin-bottom:20px; }
+  .payment-card input[type=radio]{ accent-color:var(--accent); }
+
+  .review-block{ border:1px solid var(--line); padding:20px; margin-bottom:16px; background:var(--bg-card); }
+  .review-block h4{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; }
+
+  .summary{ background:var(--bg-card); border:1px solid var(--line); padding:28px; position:sticky; top:96px; }
+  .summary-row{ display:flex; justify-content:space-between; font-size:14.5px; padding:8px 0; color:var(--ink-soft); }
+  .summary-row.total{ color:var(--ink); font-weight:600; font-size:1.05rem; border-top:1px solid var(--line); margin-top:8px; padding-top:16px; }
+  .mini-item{ display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); }
+  .mini-item img{ width:48px; height:48px; object-fit:cover; border:1px solid var(--line); }
+  .mini-item .name{ font-size:13.5px; } .mini-item .sub{ font-size:12px; color:var(--ink-soft); }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <a href="index.html" class="logo">TETO Shop</a>
+    <nav class="primary"><ul><li><a href="shop.html">Shop</a></li><li><a href="shop.html">Categories</a></li><li><a href="about.html">About</a></li></ul></nav>
+    <div class="nav-icons"><a class="icon-btn" href="cart.html" aria-label="Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/></svg></a></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumb" style="padding:24px 0 0; font-size:12.5px; color:var(--ink-soft);"><a href="cart.html">Cart</a> / Checkout</p>
+  <h1 style="font-size:clamp(1.8rem,3.6vw,2.4rem); margin:14px 0 30px;">Checkout</h1>
+
+  <div class="checkout-layout">
+    <div>
+      <div class="steps">
+        <button class="step-pill current" data-pill="shipping" data-step-trigger="shipping"><span class="num">1</span>Shipping</button>
+        <button class="step-pill" data-pill="payment" data-step-trigger="payment"><span class="num">2</span>Payment</button>
+        <button class="step-pill" data-pill="review" data-step-trigger="review"><span class="num">3</span>Review</button>
+      </div>
+
+      <div data-step="shipping" class="active">
+        <h3 style="margin-bottom:18px;">Contact Information</h3>
+        <div class="field"><label>Email Address</label><input type="email" placeholder="evelyn@example.com"></div>
+
+        <h3 style="margin:26px 0 18px;">Shipping Address</h3>
+        <div class="form-grid">
+          <div class="field"><label>First Name</label><input type="text" placeholder="Evelyn"></div>
+          <div class="field"><label>Last Name</label><input type="text" placeholder="Thorne"></div>
+          <div class="field full"><label>Address Line 1</label><input type="text" placeholder="128 Organic Lane"></div>
+          <div class="field full"><label>Apartment, suite, etc. (optional)</label><input type="text"></div>
+          <div class="field"><label>City</label><input type="text" placeholder="Portland"></div>
+          <div class="field"><label>State</label><input type="text"></div>
+          <div class="field"><label>ZIP Code</label><input type="text" placeholder="97201"></div>
+          <div class="field"><label>Country</label><select><option>USD — United States</option></select></div>
+        </div>
+        <button class="btn" data-step-trigger="payment" style="margin-top:8px;">Continue to Payment</button>
+      </div>
+
+      <div data-step="payment">
+        <h3 style="margin-bottom:18px;">Payment</h3>
+        <div class="payment-card"><input type="radio" name="pay" checked><span>Credit Card</span></div>
+        <div class="form-grid">
+          <div class="field full"><label>Card Number</label><input type="text" placeholder="•••• •••• •••• ••••"></div>
+          <div class="field"><label>Expiration Date (MM/YY)</label><input type="text" placeholder="MM/YY"></div>
+          <div class="field"><label>Security Code</label><input type="text" placeholder="CVC"></div>
+          <div class="field full"><label>Full Name on Card</label><input type="text" placeholder="Evelyn Thorne"></div>
+        </div>
+        <button class="btn" data-step-trigger="review" style="margin-top:8px;">Review Order</button>
+      </div>
+
+      <div data-step="review">
+        <h3 style="margin-bottom:18px;">Review</h3>
+        <div class="review-block"><h4>Shipping Address</h4><p>Evelyn Thorne<br>128 Organic Lane<br>Portland, 97201</p></div>
+        <div class="review-block"><h4>Payment</h4><p>Credit Card ending in •••• </p></div>
+        <button class="btn full" onclick="alert('Order placed — thank you!')">Complete Purchase</button>
+      </div>
+    </div>
+
+    <aside class="summary">
+      <h3>Order Summary (2 items)</h3>
+      <div class="mini-item">
+        <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=100&q=80" alt="Hand-thrown Ceramic Mug">
+        <div><p class="name">Hand-thrown Ceramic Mug</p><p class="sub">Oatmeal / Small</p></div>
+      </div>
+      <div class="mini-item">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=100&q=80" alt="Woven Linen Throw">
+        <div><p class="name">Woven Linen Throw</p><p class="sub">Sage / Standard</p></div>
+      </div>
+      <div class="summary-row" style="margin-top:12px;"><span>Subtotal</span><span>$209.00</span></div>
+      <div class="summary-row"><span>Shipping</span><span>$0.00</span></div>
+      <div class="summary-row"><span>Taxes</span><span>$16.72</span></div>
+      <div class="summary-row total"><span>Total</span><span>$225.72</span></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.14); padding-top:24px;">
+      <span>© 2024 TETO Shop. Organic Precision.</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
